@@ -6,28 +6,40 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:41:17 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/02/26 17:19:19 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/02/27 12:38:43 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*str_new(size_t n)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * (n + 1));
+	if (!str)
+		return (NULL);
+	return (str);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*ptr;
-	unsigned int	i;
+	char	*str;
+	char	*str_ptr;
 
-	i = 0;
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (!ptr)
+	if (!s)
 		return (NULL);
-	while (len > 0)
-	{
-		ptr[i] = s[start];
-		i++;
-		start++;
-		len--;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	if (start > ft_strlen(s))
+		len = 0;
+	else if (len > (ft_strlen(s) - start))
+		len = ft_strlen(s) - start;
+	str = str_new(len);
+	if (!str)
+		return (NULL);
+	s += start;
+	str_ptr = str;
+	*(str + len) = '\0';
+	while (len-- && *s)
+		*str++ = *s++;
+	return (str_ptr);
 }

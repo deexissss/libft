@@ -6,7 +6,7 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 11:24:09 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/02/26 15:40:00 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/02/27 12:25:12 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	get_digits(int n)
 	size_t	i;
 
 	i = 1;
-	while (1)
+	while (i)
 	{
 		n /= 10;
 		if (n == 0)
