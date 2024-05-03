@@ -6,13 +6,13 @@
 /*   By: tjehaes <tjehaes@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:41:17 by tjehaes           #+#    #+#             */
-/*   Updated: 2024/02/27 12:38:43 by tjehaes          ###   ########.fr       */
+/*   Updated: 2024/03/22 13:37:08 by tjehaes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*str_new(size_t n)
+/*static char	*str_new(size_t n)
 {
 	char	*str;
 
@@ -20,7 +20,7 @@ static char	*str_new(size_t n)
 	if (!str)
 		return (NULL);
 	return (str);
-}
+}*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -33,7 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	else if (len > (ft_strlen(s) - start))
 		len = ft_strlen(s) - start;
-	str = str_new(len);
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	s += start;
