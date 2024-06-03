@@ -11,22 +11,29 @@ OBJECTS = $(SOURCES:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+BLUE := \033[0;34m
+PINK := \033[1;35m
+BLUE2 := \033[0;36m
+
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(AR) -rcs $@ $^
+	@$(AR) -rcs $@ $^
+	@echo "$(BLUE)COMPILATION DONE"
 so:
 	gcc *.o --shared -o libft.so
 
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
+	@echo "$(BLUE2)CLEAN ALL THE OBJ"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(PINK)CLEAN EVERYTHING"
 
 re: fclean all
 
